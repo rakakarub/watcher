@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://khy.legalite.innova.com.tr/davaOlusturService"
+           targetNamespace="http://khy.legalite.innova.com.tr/davaOlusturService">
+    <xs:simpleType name="davaTipi">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ADLI_CEZA" />
+            <xs:enumeration value="ADLI_HUKUK" />
+            <xs:enumeration value="IDARI_IDARE" />
+            <xs:enumeration value="IDARI_VERGI" />
+            <xs:enumeration value="TUKETICI_SIKAYETI" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="muvekkilTipi">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ALACAKLI" />
+            <xs:enumeration value="BORCLU" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="tahsilatDusumSirasi">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="TAKIBE_ESAS_ALACAK" />
+            <xs:enumeration value="FAIZ" />
+            <xs:enumeration value="MASRAF" />
+            <xs:enumeration value="VEKALET_UCRETI" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="tarafTipi">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="TANIK" />
+            <xs:enumeration value="MAGDUR" />
+            <xs:enumeration value="MUSTEKI" />
+            <xs:enumeration value="SUPHELI" />
+            <xs:enumeration value="SANIK" />
+            <xs:enumeration value="DAVACI_YANINDA_KATILAN" />
+            <xs:enumeration value="DAVALI_YANINDA_KATILAN" />
+            <xs:enumeration value="FERI_MUDAHIL" />
+            <xs:enumeration value="ASLI_MUDAHIL" />
+            <xs:enumeration value="MUDAHALE_EDEN" />
+            <xs:enumeration value="DAVALI" />
+            <xs:enumeration value="DAVACI" />
+            <xs:enumeration value="IHBAR_EDILEN" />
+            <xs:enumeration value="SIKAYET_EDILEN" />
+            <xs:enumeration value="SIKAYETCI" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="tarafTuru">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="GERCEK" />
+            <xs:enumeration value="TUZEL" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="dosyaBilgileri">
+        <xs:sequence>
+            <xs:element name="davaTipi" type="tns:davaTipi" />
+            <xs:element name="muvekkilTipi" type="tns:muvekkilTipi" />
+            <xs:element name="muvekkilId" type="xs:string" />
+            <xs:element name="buroId" type="xs:string" nillable="true" />
+            <xs:element name="yurtDisiDavasiMi" type="xs:boolean" />
+            <xs:element name="muvekkilDosyaNo" type="xs:string" />
+            <xs:element name="tahsilatDusumSirasi" type="tns:tahsilatDusumSirasi" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="tarafBilgileri">
+        <xs:sequence>
+            <xs:element name="tarafTipi" type="tns:tarafTipi" />
+            <xs:element name="tarafTuru" type="tns:tarafTuru" />
+            <xs:element name="adiUnvani" type="xs:string" />
+            <xs:element name="soyadi" type="xs:string" />
+            <xs:element name="varsayilanMi" type="xs:boolean" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="davaBilgileri">
+        <xs:sequence>
+            <xs:element name="ilId" type="xs:string" />
+            <xs:element name="ilceId" type="xs:string" />
+            <xs:element name="davaDegeri" type="xs:long" />
+            <xs:element name="aciklama" type="xs:string" nillable="true" />
+            <xs:element name="savcilikSurecineDahilEdilsin" type="xs:boolean" nillable="true" />
+            <xs:element name="savcilikId" type="xs:string" nillable="true" />
+            <xs:element name="savcilikHazirlikNo" type="xs:string" nillable="true" />
+            <xs:element name="muracaatTarihi" type="xs:date" nillable="true" />
+            <xs:element name="aleyheTebligTarihi" type="xs:date" nillable="true" />
+            <xs:element name="davaMahkemesiId" type="xs:string" nillable="true" />
+            <xs:element name="davaEsasNo" type="xs:string" nillable="true" />
+            <xs:element name="onIncelemeTarihi" type="xs:date" nillable="true" />
+            <xs:element name="davaTuruId" type="xs:string" nillable="true" />
+            <xs:element name="davaAltTuruId" type="xs:string" nillable="true" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

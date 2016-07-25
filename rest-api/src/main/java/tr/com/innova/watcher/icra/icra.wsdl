@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<wsdl:definitions targetNamespace="http://khy.legalite.innova.com.tr/icraOlusturService"
+                  xmlns:tns="http://khy.legalite.innova.com.tr/icraOlusturService"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:jaxws="http://java.sun.com/xml/ns/jaxws">
+    <wsdl:types>
+        <xs:schema xmlns:tns="http://khy.legalite.innova.com.tr/icraOlusturService"
+                   targetNamespace="http://khy.legalite.innova.com.tr/icraOlusturService">
+            <xs:include id="icraBilgileri" schemaLocation="icraBilgileri.xsd" />
+            <xs:element name="icraOlustur" type="tns:icraOlustur" />
+            <xs:element name="icraOlusturResponse" type="tns:icraOlusturResponse" />
+            <xs:complexType name="icraOlustur">
+                <xs:sequence>
+                    <xs:element name="dosyaBilgileri" type="tns:dosyaBilgileri" />
+                    <xs:element name="kisiBilgileri" type="tns:kisiBilgileri" />
+                    <xs:element name="icraBilgileri" type="tns:icraBilgileri" />
+                    <xs:element name="tutarBilgileri" type="tns:tutarBilgileri" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="icraOlusturResponse">
+                <xs:sequence>
+                    <xs:element name="islemSonucu" type="xs:string" />
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="icraOlusturResponse">
+        <wsdl:part name="parameters" element="tns:icraOlusturResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="icraOlustur">
+        <wsdl:part name="parameters" element="tns:icraOlustur">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="icraOlusturService">
+        <jaxws:bindings >
+            <jaxws:enableWrapperStyle>false</jaxws:enableWrapperStyle>
+        </jaxws:bindings>
+    <wsdl:operation name="icraOlustur">
+        <wsdl:input name="icraOlustur" message="tns:icraOlustur">
+        </wsdl:input>
+        <wsdl:output name="icraOlusturResponse" message="tns:icraOlusturResponse">
+        </wsdl:output>
+    </wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="icraOlusturServiceBinding" type="tns:icraOlusturService">
+<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+<wsdl:operation name="icraOlustur">
+    <soap:operation soapAction="" style="document" />
+    <wsdl:input name="icraOlustur">
+        <soap:body use="literal" />
+    </wsdl:input>
+    <wsdl:output name="icraOlusturResponse">
+        <soap:body use="literal" />
+    </wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="icraOlusturServiceService">
+<wsdl:port name="icraOlusturServicePort" binding="tns:icraOlusturServiceBinding">
+    <soap:address location="http://localhost:8090/icraOlusturServicePort" />
+</wsdl:port>
+</wsdl:service>
+        </wsdl:definitions>

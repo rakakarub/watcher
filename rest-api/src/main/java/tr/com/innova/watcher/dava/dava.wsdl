@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<wsdl:definitions targetNamespace="http://khy.legalite.innova.com.tr/davaOlusturService"
+                  xmlns:tns="http://khy.legalite.innova.com.tr/davaOlusturService"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:jaxws="http://java.sun.com/xml/ns/jaxws">
+    <wsdl:types>
+        <xs:schema xmlns:tns="http://khy.legalite.innova.com.tr/davaOlusturService"
+                   targetNamespace="http://khy.legalite.innova.com.tr/davaOlusturService">
+            <xs:include id="davaBilgileri" schemaLocation="davaBilgileri.xsd" />
+            <xs:element name="davaOlustur" type="tns:davaOlustur" />
+            <xs:element name="davaOlusturResponse" type="tns:davaOlusturResponse" />
+            <xs:complexType name="davaOlustur">
+                <xs:sequence>
+                    <xs:element name="dosyaBilgileri" type="tns:dosyaBilgileri" />
+                    <xs:element name="tarafBilgileri" type="tns:tarafBilgileri" />
+                    <xs:element name="davaBilgileri" type="tns:davaBilgileri" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="davaOlusturResponse">
+                <xs:sequence>
+                    <xs:element name="islemSonucu" type="xs:string" />
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="davaOlusturResponse">
+        <wsdl:part name="parameters" element="tns:davaOlusturResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="davaOlustur">
+        <wsdl:part name="parameters" element="tns:davaOlustur">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="davaOlusturService">
+        <jaxws:bindings >
+            <jaxws:enableWrapperStyle>false</jaxws:enableWrapperStyle>
+        </jaxws:bindings>
+    <wsdl:operation name="davaOlustur">
+        <wsdl:input name="davaOlustur" message="tns:davaOlustur">
+        </wsdl:input>
+        <wsdl:output name="davaOlusturResponse" message="tns:davaOlusturResponse">
+        </wsdl:output>
+    </wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="davaOlusturServiceBinding" type="tns:davaOlusturService">
+<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+<wsdl:operation name="davaOlustur">
+    <soap:operation soapAction="" style="document" />
+    <wsdl:input name="davaOlustur">
+        <soap:body use="literal" />
+    </wsdl:input>
+    <wsdl:output name="davaOlusturResponse">
+        <soap:body use="literal" />
+    </wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="davaOlusturServiceService">
+<wsdl:port name="davaOlusturServicePort" binding="tns:davaOlusturServiceBinding">
+    <soap:address location="http://localhost:8090/davaOlusturServicePort" />
+</wsdl:port>
+</wsdl:service>
+        </wsdl:definitions>

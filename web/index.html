@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+    <title>Watcher</title>
+    <script src="jspm_packages/system.js"></script>
+    <script src="jspm.config.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+<div id="app"/>
+<script>
+    System.import("app");
+</script>
+<script>
+//    var readyForMainLoad;
+//    if (location.origin.match(/localhost/)) {
+//        System.trace = true;
+//        readyForMainLoad = System.import('systemjs-hot-reloader').then(function (HotReloader) {
+//            hr = new HotReloader.default('http://localhost:8081');
+//        });
+//    }
+//    Promise.resolve(readyForMainLoad).then(function () {
+//        System.import("./app.js").catch(function (error) {
+//            console.error(error);
+//        });
+//    });
+</script>
+</body>
+</html>

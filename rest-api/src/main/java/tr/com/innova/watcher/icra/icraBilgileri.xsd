@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://khy.legalite.innova.com.tr/icraOlusturService"
+           targetNamespace="http://khy.legalite.innova.com.tr/icraOlusturService">
+    <xs:simpleType name="muvekkilTipi">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ALACAKLI" />
+            <xs:enumeration value="BORCLU" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="kisiTuru">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="GERCEK" />
+            <xs:enumeration value="TUZEL" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="adresTipi">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ASKERLIK_ADRESI" />
+            <xs:enumeration value="DEPO_ADRESI" />
+            <xs:enumeration value="SIRKET_MERKEZI" />
+            <xs:enumeration value="CEZAEVI_ADRESI" />
+            <xs:enumeration value="YURTDISI_IKAMETGAH_ADRESI" />
+            <xs:enumeration value="YURTDISI_ISYERI_ADRESI" />
+            <xs:enumeration value="YURTICI_IKAMETGAH_ADRESI" />
+            <xs:enumeration value="YURTICI_ISYERI_ADRESI" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="takipTipi">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ILAMSIZ_TAKIP" />
+            <xs:enumeration value="ILAMLI_TAKIP" />
+            <xs:enumeration value="ILAMSIZ_IPOTEK" />
+            <xs:enumeration value="ILAMSIZ_KAMBIYO" />
+            <xs:enumeration value="ILAMSIZ_REHIN" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="borcKalem">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ALACAK_DAVA" />
+            <xs:enumeration value="ALACAK_ICRA" />
+            <xs:enumeration value="ALEYHE_ESAS_ALACAK" />
+            <xs:enumeration value="ALEYHE_MASRAF_DAVA" />
+            <xs:enumeration value="ALEYHE_MASRAF_ICRA" />
+            <xs:enumeration value="ALEYHE_TAHSIL_HARCI_DAVA" />
+            <xs:enumeration value="ALEYHE_TAHSIL_HARCI_ICRA" />
+            <xs:enumeration value="ALEYHE_TAKIBE_ESAS_ALACAK" />
+            <xs:enumeration value="ALEYHE_VEKALET_UCRETI_DAVA" />
+            <xs:enumeration value="ALEYHE_VEKALET_UCRETI_ICRA" />
+            <xs:enumeration value="ALEYHE_YARGILAMA_GIDERI" />
+            <xs:enumeration value="ASIL_ALACAK_DAVA" />
+            <xs:enumeration value="ASIL_ALACAK_ICRA" />
+            <xs:enumeration value="ASIL_SUPHELI_ALACAK" />
+            <xs:enumeration value="DAMGA_VERGISI" />
+            <xs:enumeration value="DAVA_KARARI_FAIZ_FARKI" />
+            <xs:enumeration value="DAVA_VEKALET_UCRETI_DAVA" />
+            <xs:enumeration value="DAVA_VEKALET_UCRETI_ICRA" />
+            <xs:enumeration value="DIGER" />
+            <xs:enumeration value="FAZLA_MESAI_ALACAGI_DAVA" />
+            <xs:enumeration value="FAZLA_MESAI_ALACAGI_ICRA" />
+            <xs:enumeration value="HASAR_BEDELI_DAVA" />
+            <xs:enumeration value="HASAR_BEDELI_ICRA" />
+            <xs:enumeration value="ICRA_INKAR_TAZMINATI" />
+            <xs:enumeration value="ICRA_VEKALET_UCRETI" />
+            <xs:enumeration value="IHBAR_TAZMINATI_DAVA" />
+            <xs:enumeration value="IHBAR_TAZMINATI_ICRA" />
+            <xs:enumeration value="ISCI_ALACAGI_DAVA" />
+            <xs:enumeration value="ISCI_ALACAGI_ICRA" />
+            <xs:enumeration value="KAMBIYO_ALACAGI" />
+            <xs:enumeration value="KIDEM_TAZMINATI_DVA" />
+            <xs:enumeration value="KIDEM_TAZMINATI_ICRA" />
+            <xs:enumeration value="KIRA_ALACAGI" />
+            <xs:enumeration value="KOMISYON" />
+            <xs:enumeration value="MADDI_TAZMINAT_DAVA" />
+            <xs:enumeration value="MADDI_TAZMINAT_ICRA" />
+            <xs:enumeration value="MANEVI_TAZMINAT_DAVA" />
+            <xs:enumeration value="MANEVI_TAZMINAT_ICRA" />
+            <xs:enumeration value="TAKSITLENDIRME_BEDELI" />
+            <xs:enumeration value="TAZMINAT" />
+            <xs:enumeration value="YARGILAMA_GIDERI_DAVA" />
+            <xs:enumeration value="YARGILAMA_GIDERI_ICRA" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="dosyaBilgileri">
+        <xs:sequence>
+            <xs:element name="muvekkilTipi" type="tns:muvekkilTipi" />
+            <xs:element name="muvekkilId" type="xs:string" />
+            <xs:element name="buroId" type="xs:string" nillable="true" />
+            <xs:element name="muvekkilDosyaNo" type="xs:string" />
+            <xs:element name="dosyaKonu" type="xs:string" />
+            <xs:element name="ilId" type="xs:string" />
+            <xs:element name="ilceId" type="xs:string" />
+            <xs:element name="dosyaAciklama" type="xs:string" nillable="true" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="kisiBilgileri">
+        <xs:sequence>
+            <xs:element name="kisiTuru" type="tns:kisiTuru" />
+            <xs:element name="kisiAdUnvan" type="xs:string" />
+            <xs:element name="kisiSoyad" type="xs:string" />
+            <xs:element name="kisiAdresTipi" type="tns:adresTipi" />
+            <xs:element name="kisiIlId" type="xs:string" />
+            <xs:element name="kisiilceId" type="xs:string" />
+            <xs:element name="kisiAdres" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="icraBilgileri">
+        <xs:sequence>
+            <xs:element name="takipTipi" type="tns:takipTipi" />
+            <xs:element name="takipBaslatilmis" type="xs:boolean" />
+            <xs:element name="ilamTarihi" type="xs:date" />
+            <xs:element name="ilamEsasNo" type="xs:string" />
+            <xs:element name="ilamKararNo" type="xs:string" />
+            <xs:element name="ilamMahkemesiId" type="xs:string" />
+            <xs:element name="karsiTarafVekilleri" type="xs:string" nillable="true" />
+            <xs:element name="takipBaslatmaTarihi" type="xs:date" nillable="true" />
+            <xs:element name="icraDosyaNo" type="xs:string" nillable="true" />
+            <xs:element name="icraMudurluguId" type="xs:string" nillable="true" />
+            <xs:element name="tebligTarihi" type="xs:date" nillable="true" />
+            <xs:element name="takipKesinlestirmeTarihi" type="xs:date" nillable="true" />
+            <xs:element name="hacizTarihi" type="xs:date" nillable="true" />
+            <xs:element name="bsmvHesaplansinMi" type="xs:boolean" nillable="true" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="tutarBilgileri">
+        <xs:sequence>
+            <xs:element name="borcKalem" type="tns:borcKalem" />
+            <xs:element name="borcTutari" type="xs:long" />
+            <xs:element name="faizTipiId" type="xs:string" nillable="true" />
+            <xs:element name="faizBaslangicTarihi" type="xs:date" nillable="true" />
+            <xs:element name="sabitFaizOrani" type="xs:double" nillable="true" />
+            <xs:element name="faizPeriyodu" type="xs:string" nillable="true" />
+            <xs:element name="tutarAciklama" type="xs:string" nillable="true" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
